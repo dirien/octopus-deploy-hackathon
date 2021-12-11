@@ -18,5 +18,9 @@ terraform {
 
 
 provider "azurerm" {
+  subscription_id = "#{Azure.SubscriptionNumber}"
+  client_id       = "#{Azure.Client}"
+  client_secret   = "#{Azure.Password}"
+  tenant_id       = "#{Azure.TenantId}"
   features {}
 }
