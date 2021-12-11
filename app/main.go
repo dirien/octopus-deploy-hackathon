@@ -1,15 +1,21 @@
 package main
 
 import (
+	_ "embed"
 	"io"
 	"log"
 	"net/http"
 )
 
+//go:embed lofi.gif
+var font []byte
+
 func main() {
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		io.WriteString(w, "Hello World!")
+
+		w.Header().Set("Content-Type", "image/gif")
+		io.WriteString(w, string(font))
 	})
 
 	http.HandleFunc("/health", func(w http.ResponseWriter, r *http.Request) {

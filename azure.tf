@@ -48,7 +48,7 @@ resource "azurerm_app_service" "octopus-deploy-as" {
   client_affinity_enabled = true
   site_config {
     always_on        = "true"
-    linux_fx_version = "DOCKER|dirien/simple-go:latest"
+    linux_fx_version = "DOCKER|dirien/lofi-go:#{APP_VERSION}"
 
     health_check_path        = "/health"
     ftps_state               = "Disabled"
